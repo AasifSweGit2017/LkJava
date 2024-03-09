@@ -20,14 +20,16 @@ public class ArrayListTest {
         newList.add(40);
         newList.add(50);
 
+        
         newList2 = newList.copyOf();
         // newList2 = newList.copyOf(a, 15);
         
         // System.out.println(newList.get()); 
         System.out.println(newList.length());
-        System.out.println(newList.get(0)); 
-        System.out.println(newList2.length()); 
-        System.out.println(newList2.get(0)); 
+        System.out.println(newList.get(9)); 
+        newList.insert(9, 24);
+        // System.out.println(newList2.length()); 
+        System.out.println(newList.get(9)); 
         // System.out.println(newList.capacity); 
         System.out.println(Arrays.toString(a)); 
         // System.out.println(Arrays.toString(b)); 

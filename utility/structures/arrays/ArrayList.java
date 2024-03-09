@@ -162,4 +162,25 @@ public class ArrayList<Type> {
 
         return arraylist[index];
     }
+
+    /*
+     * 
+     */
+    public void insert(int index,Type value){
+        if (length == 0) {
+            add(value);
+            return;
+        }
+        if (length == capacity) {
+            expandArray();
+        }
+        if (length > 1) {
+            
+        }
+
+        for(int index_in_loop = length - 1;index_in_loop >= index;index_in_loop--){
+            arraylist[index_in_loop + 1] = arraylist[index_in_loop];
+        }
+        arraylist[index] = value;
+    }
 }
