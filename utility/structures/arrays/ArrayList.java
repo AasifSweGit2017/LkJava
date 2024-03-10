@@ -7,15 +7,15 @@ package utility.structures.arrays;
  * ------------------------------------------------------------------------------------------
  * Copy of array to array                    : copyOf(arrayList)*                 arraylist
  * Add at end                                : add(value)*                          null
- * Insert at specified position              : insert(index,value)                  null
- * Delete at specified position              : remove(index)                        null
- * Delete at first                           : removeFirst()                        null
- * Delete at end                             : removeLast()                         null
+ * Insert at specified position              : insert(index,value)//*                  null
+ * Delete at specified position              : remove(index)//*                        null
+ * Delete at first                           : removeFirst()//*                        null
+ * Delete at end                             : removeLast()//*                         null
  * Get from specified position               : get(index)*                     Returns the value in index (value)
  * Get the value of first position           : get()*                          Returns the value in first (value)
- * Update from specified position            : update(index,value)                   null
- * Search the specified value                : search(value)                  Returns the index for the value (index : type in Integer)
- * Find the values                           : contains(value)                Whether this value exists or not (true or false : type in Boolean)
+ * Update from specified position            : update(index,value)*                   null
+ * Search the specified value                : search(value)*                  Returns the index for the value (index : type in Integer)
+ * Find the values                           : contains(value)*                Whether this value exists or not (true or false : type in Boolean)
  * Display the list                          : display()                            null
  * Clear all values                          : clearAll()                           null
  * Length                                    : length()                       The size of the list (value : type in Integer)
@@ -103,8 +103,11 @@ public class ArrayList<Type> {
      * because the shrink Array method is only for shrinking the size of the array.
      */
     private void shrinkArray(){
-        capacity /= 2;
-        arraylist = copyOf(arraylist, capacity);
+
+        if (capacity > DEFAULT_SIZE && capacity > (3 * length)) {
+            capacity /= 2;
+            arraylist = copyOf(arraylist, capacity);    
+        }
     }
     
 
@@ -165,8 +168,13 @@ public class ArrayList<Type> {
 
     /*
      * 
+     * 
+     * 
      */
     public void insert(int index,Type value){
+        if ((length + 1) <=  index || index < 0) {
+            throw new NullPointerException("Out of control ! : " + "Your input " + index + " | expected input 0 to " + length);
+        }
         if (length == 0) {
             add(value);
             return;
@@ -174,13 +182,97 @@ public class ArrayList<Type> {
         if (length == capacity) {
             expandArray();
         }
-        if (length > 1) {
-            
-        }
 
         for(int index_in_loop = length - 1;index_in_loop >= index;index_in_loop--){
             arraylist[index_in_loop + 1] = arraylist[index_in_loop];
         }
         arraylist[index] = value;
+        length++;
     }
+
+    /*
+     * 
+     */
+
+    public void removeFirst(){
+        if (length == 0) {
+            throw new NullPointerException("List is empty !");
+        }
+        for (int index = 1; index < length; index++) {
+            arraylist[index - 1] = arraylist[index];
+        }
+        length--;
+
+        shrinkArray();
+    }
+
+    /*
+     * 
+     */
+    public void removeLast(){
+        length--;
+        shrinkArray();
+    }
+
+    /*
+     * 
+     * 
+     */
+    public void remove(int index){
+        if (length == 0) {
+            throw new NullPointerException("List is empty !");
+        }
+        if (index == 0) {
+            removeFirst();
+            return;
+        }
+        if (index == length - 1) {
+            removeLast();
+            return;
+        }
+
+        for(int inner_index = index + 1;inner_index < length;inner_index++){
+            arraylist[inner_index - 1] = arraylist[inner_index];
+        }
+        length--;
+    }
+
+    /*
+     * 
+     * 
+     */
+    public void update(int index,Type value){
+        if (length == 0) {
+            throw new NullPointerException("List is empty !");
+        }
+        if (length ==  index || index < 0) {
+            throw new NullPointerException("Out of control ! : " + "Your input " + index + " | expected input 0 to " + (length - 1));
+        }
+        arraylist[index] = value;
+    }
+
+    /*
+     * 
+     * 
+     */
+    public int search(Type value){
+        
+        for(int inner_index = 0; inner_index < length; inner_index++){
+            if(arraylist[inner_index] == value){
+                return inner_index;
+            }
+        }
+        return -1;
+    }
+
+    /*
+     * 
+     * 
+     */
+    public boolean contains(Type value){
+        return(
+            (search(value) != -1)?true:false
+        );
+    }
+
 }

@@ -24,14 +24,31 @@ public class ArrayListTest {
         newList2 = newList.copyOf();
         // newList2 = newList.copyOf(a, 15);
         
-        // System.out.println(newList.get()); 
-        System.out.println(newList.length());
-        System.out.println(newList.get(9)); 
-        newList.insert(9, 24);
-        // System.out.println(newList2.length()); 
-        System.out.println(newList.get(9)); 
-        // System.out.println(newList.capacity); 
-        System.out.println(Arrays.toString(a)); 
+        // // System.out.println(newList.get()); 
+        // System.out.println(newList.length());
+        // // System.out.println(newList.get(12)); 
+        // newList.insert(10, 24);
+        // System.out.println(newList.length());
+        // // System.out.println(newList2.length()); 
+        // // System.out.println(newList2.length()); 
+        // System.out.println(newList.get(11)); 
+        // // System.out.println(newList.capacity); 
+        // System.out.println(Arrays.toString(a)); 
         // System.out.println(Arrays.toString(b)); 
+        // newList.insert(11, 54);
+
+        System.out.println("\n\n");
+        // System.out.println(" " + newList.get(0)); 
+        // System.out.println(newList.length());
+        // System.out.println("\n\n");
+        // newList.remove(0);
+        // // newList.removeFirst();
+        // System.out.println(" " + newList.get(10)); 
+        // newList.update(10,66);
+        // System.out.println(newList.length());
+        System.out.println(" " + newList.get(3)); 
+
+        System.out.println(newList.search(100));
+
     }
 }
