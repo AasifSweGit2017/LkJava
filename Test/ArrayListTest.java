@@ -14,14 +14,20 @@ public class ArrayListTest {
         newList.add(30);
         newList.add(40);
         newList.add(50);
-        newList.add(10);
-        newList.add(20);
-        newList.add(30);
-        newList.add(40);
-        newList.add(50);
 
+        for (Integer integer : newList) {
+            System.out.println(integer);
+        }
         
-        newList2 = newList.copyOf();
+        // newList.clearAll();
+
+        newList.add(11);
+        newList.add(22);
+        newList.add(33);
+        newList.add(44);
+        newList.add(55);
+        
+        // newList2 = newList.copyOf();
         // newList2 = newList.copyOf(a, 15);
         
         // // System.out.println(newList.get()); 
@@ -37,7 +43,7 @@ public class ArrayListTest {
         // System.out.println(Arrays.toString(b)); 
         // newList.insert(11, 54);
 
-        System.out.println("\n\n");
+        // System.out.println("\n\n");
         // System.out.println(" " + newList.get(0)); 
         // System.out.println(newList.length());
         // System.out.println("\n\n");
@@ -45,10 +51,16 @@ public class ArrayListTest {
         // // newList.removeFirst();
         // System.out.println(" " + newList.get(10)); 
         // newList.update(10,66);
+        // System.out.println(" " + newList.get(3)); 
+        
+        // System.out.println(newList.search(100));
+        newList.reverse();
+        
+        System.out.println();
+        for (Integer integer : newList) {
+            System.out.println(integer);
+        }
         // System.out.println(newList.length());
-        System.out.println(" " + newList.get(3)); 
-
-        System.out.println(newList.search(100));
 
     }
 }

@@ -1,5 +1,7 @@
 package utility.structures.arrays;
 
+import java.util.Iterator;
+
 /*
  * Public methods 
  * 
@@ -16,13 +18,13 @@ package utility.structures.arrays;
  * Update from specified position            : update(index,value)*                   null
  * Search the specified value                : search(value)*                  Returns the index for the value (index : type in Integer)
  * Find the values                           : contains(value)*                Whether this value exists or not (true or false : type in Boolean)
- * Display the list                          : display()                            null
- * Clear all values                          : clearAll()                           null
- * Length                                    : length()                       The size of the list (value : type in Integer)
+ * Display the list                          : Iterator()****                         null
+ * Clear all values                          : clearAll()*                           null
+ * Length                                    : length()*                       The size of the list (value : type in Integer)
  * Sort to ascending order                   : sortA()                            (null)/arraylist
  * Sort to descending order                  : sortD()                            (null)/arraylist
- * Two arraylist Comparison                  : isEquals()                     true or false:Boolean
- * Reverse arraylist                         : reverse()                          (null)/arraylist
+ * Two arraylist Comparison                  : isEquals()*                     true or false:Boolean
+ * Reverse arraylist                         : reverse()*                          (null)/arraylist
  * Find min value                            : min()?                          The minimum value in the list min value
  * Find max value                            : max()?                          The maximum value in the list max value
  * Iterator
@@ -35,7 +37,7 @@ package utility.structures.arrays;
  * 
  */
 
-public class ArrayList<Type> {
+public class ArrayList<Type> implements Iterable<Type>{
  
     /*
      * 
@@ -57,15 +59,21 @@ public class ArrayList<Type> {
 
 
 
-    /*
+    /**
      * This method (copyOf(Type[] original,int newLength)) only of use to this class
      * Because this method copies to old array to a new array 
+     * 
+     * 
      */
 
     @SuppressWarnings("unchecked")
     private Type[] copyOf(Type[] original,int newLength){
-
+        
+        if (newLength == 0) {
+            throw new NullPointerException("You are approach the illegal way ! : " + "Your input " + newLength + " | expected input 1 or greater 1");
+        }
         Type[] newArrayList = (Type[]) new Object[newLength];
+        
 
         for(int index = 0;index < original.length;index++){
             newArrayList[index] = original[index];
@@ -274,5 +282,60 @@ public class ArrayList<Type> {
             (search(value) != -1)?true:false
         );
     }
+
+    /*
+     * 
+     */
+    public Iterator<Type> iterator(){
+        return new Iterator<Type>(){
+            int index = 0;
+            @Override
+            public boolean hasNext() {
+                return index < length;
+            }
+            @Override
+            public Type next() {
+                return arraylist[index++];
+            }
+        };
+    }
+
+
+    /*
+     * @example
+     */
+
+    @SuppressWarnings("unchecked")
+    public void clearAll(){
+        length = 0;
+        capacity = DEFAULT_SIZE;
+        arraylist = (Type[]) new Object[capacity];
+    }
+
+
+    /*
+     * 
+     */
+    public boolean isEquals(ArrayList<Type> arrayList){
+        return true;
+    }
+
+    /*
+     * 
+     */
+
+    public void reverse(){
+        int least_index = length - 1;Type tempValue = null;
+        for(int index = 0;index < length;index++){
+            tempValue = arraylist[index];
+            arraylist[index] = arraylist[least_index];
+            arraylist[least_index--] = tempValue;
+            if (index > least_index) {
+                break;
+            }
+        }
+    }
+    
+
 
 }
