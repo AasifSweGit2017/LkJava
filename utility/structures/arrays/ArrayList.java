@@ -81,14 +81,13 @@ public class ArrayList<Type> implements Iterable<Type>{
         return newArrayList;
     }
 
-    /*
+    /**
      * You can use this method to copy the old arrayList to a new arrayList
      * This is what everyone calls it clone
      * This method after creating a new ArrayList copy to the old Array list value in the new list
      */
 
     public ArrayList<Type> copyOf(){
-
         ArrayList<Type> newArrayList = new ArrayList<>();
         for(int index = 0;index < length;index++){
             newArrayList.add(get(index));
@@ -313,26 +312,41 @@ public class ArrayList<Type> implements Iterable<Type>{
     }
 
 
-    /*
+    /**
+     * 
+     * @param arrayList
+     * @return
      * 
      */
-    public boolean isEquals(ArrayList<Type> arrayList){
+    @SuppressWarnings("unchecked")
+    public boolean isEquals(Object arrayList){
+        if (this != ((Type)arraylist)) {
+            return false;
+        }
         return true;
     }
 
-    /*
+    /**
      * 
+     * You can use the {@code reverse()} method to reverse the {@code ArrayList}
+     * 
+     * @example Let's imagine this is before reversing ArrayList {@code num = 1,2,3,4,5} 
+     * and after reversing a ArrayList {@code num = 5,4,3,2,1}
+     * 
+     * @Types {@code Primitive} and {@code Non-primitive}
+     * 
+     * @throws Not {@code throw} the exception of this method Because this method is only for reversing the array is not modified values
      */
 
     public void reverse(){
-        int least_index = length - 1;Type tempValue = null;
-        for(int index = 0;index < length;index++){
+
+        int least_index = length - 1;
+        Type tempValue = null;
+        
+        for(int index = 0;index < least_index;index++){
             tempValue = arraylist[index];
             arraylist[index] = arraylist[least_index];
             arraylist[least_index--] = tempValue;
-            if (index > least_index) {
-                break;
-            }
         }
     }
     

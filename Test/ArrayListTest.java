@@ -8,24 +8,43 @@ public class ArrayListTest {
     public static void main(String[] args) {
         Integer a[] = {1,3,5,71,37,18,63,12,71,12};
         ArrayList<Integer> newList = new ArrayList<>();
-        ArrayList<Integer> newList2 = new ArrayList<>();
+        ArrayList<String> newList2 = new ArrayList<>();
         newList.add(10);
         newList.add(20);
         newList.add(30);
         newList.add(40);
         newList.add(50);
+        String aaString = new String("as");
+        aaString.equals(a);
+        ArrayList<Integer> newList3 = new ArrayList<>();
+        newList3.add(10);
+        // newList3.add(20);
+        // newList3.add(20);
+                System.out.println(newList.isEquals(newList3));
+        newList2.add("Int");
+        newList2.add("aasif");
+        newList2.add("ram");
+        newList2.add("vnith");
 
-        for (Integer integer : newList) {
-            System.out.println(integer);
+        for (String string : newList2) {
+            System.out.print(" " +string);
         }
-        
-        // newList.clearAll();
+        newList2.reverse();
+        System.out.println();
+        for (String string : newList2) {
+            System.out.print(" " +string);
+        }
 
-        newList.add(11);
-        newList.add(22);
-        newList.add(33);
-        newList.add(44);
-        newList.add(55);
+        // newList.clearAll();
+        
+        // newList.add(11);
+        // newList.add(22);
+        // for (Integer integer : newList) {
+        //     System.out.print(" " +integer);
+        // }
+        // newList.add(33);
+        // newList.add(44);
+        // newList.add(55);
         
         // newList2 = newList.copyOf();
         // newList2 = newList.copyOf(a, 15);
@@ -54,12 +73,13 @@ public class ArrayListTest {
         // System.out.println(" " + newList.get(3)); 
         
         // System.out.println(newList.search(100));
-        newList.reverse();
+        // newList.reverse();
         
-        System.out.println();
-        for (Integer integer : newList) {
-            System.out.println(integer);
-        }
+        
+        // System.out.println(" " + newList.length());
+        // for (Integer integer : newList) {
+        //     System.out.print(" " +integer);
+        // }
         // System.out.println(newList.length());
 
     }
