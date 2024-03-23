@@ -118,7 +118,7 @@ public class ArrayList<Type> implements Iterable<Type>{
     }
     
 
-    /*
+    /**
      * The length method you can use to count the value or size of the ArrayList
      * please consider this point before using it for any action.
      * this method returns the count of the value length of the ArrayList, not an index.
@@ -131,19 +131,19 @@ public class ArrayList<Type> implements Iterable<Type>{
     }
 
 
-    /*
+    /**
      * the add method is you can use to one by one value add
      * The add method does not insert value.
      * Adds this after the final value
      */
-    public void add(Type value){
+    public void add(Type value){                                                                                                                                              
         if (length == capacity) {
             expandArray();
         }
         arraylist[length++] = value;
     }
 
-    /*
+    /**
      * If you do not pass an index value to this method
      * Returns the first value
      * After returning the value shifting of all the values to the front side

@@ -8,10 +8,14 @@ public class LinkedList<Type> {
 
     private class Node{
 
-        Type value;
+        private Type value;
 
-        Node nextNode;
+        private Node nextNode;
         
+        /**
+         * 
+         * @param value
+        */
         Node(Type value){
             this.value = value;
             nextNode = null;
