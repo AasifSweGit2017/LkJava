@@ -67,6 +67,7 @@ public class Stack<Type> {
 
     /**
      * 
+     * 
      * @return
      * 
      * 
@@ -86,7 +87,6 @@ public class Stack<Type> {
         if (isEmpty()){
             throw new EmptyStackException();
         }
-
         return arrayList.get(
                 arrayList.length() - 1);
     }
