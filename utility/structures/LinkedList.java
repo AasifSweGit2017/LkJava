@@ -7,7 +7,8 @@ public class LinkedList<Type> {
     private Node tailNode;
 
     private class Node{
-
+        private Node pevNode;
+        
         private Type value;
 
         private Node nextNode;

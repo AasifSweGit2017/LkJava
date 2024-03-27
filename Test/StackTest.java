@@ -23,17 +23,20 @@ public class StackTest {
         // System.out.println(stack.pup());
         // System.out.println(stack.pup());
 
-        Queue<Integer> nema = new Queue<>();
+        Queue<Integer> name = new Queue<>();
 
-        nema.enqueue(10);
-        nema.enqueue(20);
-        nema.enqueue(30);
-        nema.enqueue(40);
+        System.out.println(name.isEmpty());
+        name.enqueue(10);
+        name.enqueue(20);
+        name.enqueue(30);
+        name.enqueue(40);
+        System.out.println(name.isEmpty());
 
-        System.out.println(nema.dequeue());
-        System.out.println(nema.dequeue());
-        System.out.println(nema.dequeue());
-        System.out.println(nema.dequeue());
-        System.out.println(nema.dequeue());
+        System.out.println(name.dequeue());
+        System.out.println(name.dequeue());
+        System.out.println(name.dequeue());
+        System.out.println(name.dequeue());
+        System.out.println(name.dequeue());
+        // System.out.println(name.isEmpty());
     }
 }

@@ -38,7 +38,7 @@ public class Queue<Type>{
      * 
      */
     public Type dequeue(){
-        if (!isEmpty()) {
+        if (isEmpty()) {
             throw new EmptyStackException();
         }else{
             return arrayList.get(start++);
@@ -47,7 +47,7 @@ public class Queue<Type>{
 
     public boolean isEmpty(){
         return(
-            start <= end || start != -1?true:false
+            start != -1?false:true
         );
     }
 
